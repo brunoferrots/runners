@@ -2,8 +2,8 @@ package main
 
 import (
 	"log"
-	"p_runner/config"
-	"p_runner/server"
+	"p_runners/config"
+	"p_runners/server"
 
 	_ "github.com/lib/pq"
 )
