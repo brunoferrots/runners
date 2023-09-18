@@ -2,6 +2,8 @@ package server
 
 import (
 	"database/sql"
+	"log"
+	"p_runners/controllers"
 
 	"github.com/gin-gonic/gin"
 	"github.com/spf13/viper"
@@ -43,5 +45,8 @@ func InitHttpServer(config *viper.Viper, dbHandle *sql.DB) HttpServer {
 }
 
 func (hs HttpServer) Start() {
-
+	err := hs.router.Run(hs.config.GetString("http.server_adress"))
+	if err != nil {
+		log.Fatalf("Error while starting http server: %v", err)
+	}
 }
