@@ -14,7 +14,7 @@ func InitConfig(fileName string) *viper.Viper {
 
 	err := config.ReadInConfig()
 	if err != nil {
-		log.Fatal("Erro while parsing configuration file", err)
+		log.Fatal("Error while parsing configuration file", err)
 	}
 
 	return config

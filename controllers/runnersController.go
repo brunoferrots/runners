@@ -31,7 +31,7 @@ func (rh RunnersController) CreateRunner(ctx *gin.Context) {
 	var runner models.Runner
 	err = json.Unmarshal(body, &runner)
 	if err != nil {
-		log.Println("Erro while unmarshaling update runners request body", err)
+		log.Println("Error while unmarshal update runners request body", err)
 		ctx.AbortWithError(http.StatusInternalServerError, err)
 		return
 	}
@@ -56,14 +56,14 @@ func (rh RunnersController) UpdateRunner(ctx *gin.Context) {
 	var runner models.Runner
 	err = json.Unmarshal(body, &runner)
 	if err != nil {
-		log.Println("Erro while unmarshaling update runners request body", err)
+		log.Println("Error while unmarshal update runners request body", err)
 		ctx.AbortWithError(http.StatusInternalServerError, err)
 		return
 	}
 
-	response, reponseErr := rh.runnersService.UpdateRunner(&runner)
-	if reponseErr != nil {
-		ctx.AbortWithStatusJSON(reponseErr.Status, reponseErr)
+	response, responseErr := rh.runnersService.UpdateRunner(&runner)
+	if responseErr != nil {
+		ctx.AbortWithStatusJSON(responseErr.Status, responseErr)
 		return
 	}
 
