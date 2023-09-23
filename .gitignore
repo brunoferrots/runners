@@ -1,2 +1,3 @@
 ### Config file ###
 *.toml
+.vscode
